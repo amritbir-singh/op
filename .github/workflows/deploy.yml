@@ -1,26 +1,26 @@
-name: Deploy HTML to GitHub Pages
+name: Deploy HTML to GitHub Pages  # Name of the workflow
 
 on:
   push:
     branches:
-      - main
+      - main  # Runs when code is pushed to 'main' branch
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
-    
+    runs-on: ubuntu-latest  # Runs on a virtual Ubuntu machine
+
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
-      
+        uses: actions/checkout@v3  # Downloads your repo onto the GitHub Actions server
+
       - name: Setup Pages
-        uses: actions/configure-pages@v2
+        uses: actions/configure-pages@v3  # Sets up GitHub Pages
 
       - name: Upload files to GitHub Pages
         uses: actions/upload-pages-artifact@v2
         with:
-          path: .  
+          path: https://github.com/amritbir-singh/op.git
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v2  # Deploys the website
